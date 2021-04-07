@@ -5,8 +5,9 @@ start = input("Start? (y/n): ")
 
 if start == "y" or start == "Y":
     calc_start = True
+    DIGITS = int(input("Enter your accuracy (# digits of pi): "))
+
     while calc_start is True:
-        DIGITS = int(input("Enter your accuracy (# digits of pi): "))
 
         def sector_parameter_input():
             global radius
