@@ -3,10 +3,14 @@ import os
 
 calc_start = False
 start = input("Start? (y/n): ")
+os.system("cls||clear")
 
 if start == "y" or start == "Y":
     calc_start = True
     DIGITS = int(input("Enter your accuracy (# digits of pi): ")) #asks the user the precision or how many digits of pi the algorithm will generate
+    if DIGITS <=0 or DIGITS > 2500:
+        print("Sorry, but for caculation time reasons, this calculator will only accept under 2500 digits of pi")
+        exit()
 
     #algorithm to generate requested digits of pi
     def pi_digits(x):
@@ -32,7 +36,14 @@ if start == "y" or start == "Y":
             global radius
             global angle
             radius = float(input("Enter the circle's radius: "))
+            if radius <= 0 or radius >= 25000:
+                print("The calculator only excepts numbers between 1-25000 for the radius, please restart the calculator")
+                exit()
+
             angle = float(input("Enter the angle of the arc: "))
+            if angle <= 0 or angle > 360:
+                print("Sorry, but the input angle can only be between  1-360, please restart the calculator")
+                exit()
 
         #calculates the length of an arc from radius and angle
         def sector_length_calc(radius, angle, pi):
@@ -88,7 +99,7 @@ if start == "y" or start == "Y":
 
 elif start == "n" or start == "N": #if the user responses with "n" it'll exit
     print("Exiting...")
-    time.sleep(float(0.5))
+    time.sleep(float(0.5))  
     exit()
 
 else: #if the user responds with anything that is not "y" or "n", it'll warn them and exit
